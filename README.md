@@ -1,3 +1,0 @@
-vk.loc
-======
-Hello world!
