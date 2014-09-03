@@ -1,10 +1,14 @@
 ﻿<?php
 if(!empty($_POST))
 {
-echo 'insert into users (login, pass, email)  values("' . $_POST['login'] . '","' . $_POST['pass'] . '","' . $_POST['email'] . '")';
+//echo 'insert into users ( email, login, pass) values("' . $_POST['email'] . '","' . $_POST['login'] . '","' . $_POST['pass'] . '")';
+ 
 $db = new PDO('mysql:host=localhost;dbname=vk;charset=utf8', 'root', '');
-$db->query('insert into users (login, email, pass) values("' . $_POST['login'] . '","' . $_POST['email'] . '","' . $_POST['pass'] . '")'
-}
+
+$db->query('insert into users (email, login, pass ) values("' . $_POST['email'] . '","' . $_POST['login'] . '","' . $_POST['pass'] . '")');
+$h_one_message='Thank you for registration' . $_POST['login'];
+ }
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -50,7 +54,9 @@ body {background-color:#3D4C3D;}
 </head>
 
 <body>
-
+<header>
+<p><?php if(isset($h_one_message)) { echo $h_one_message; } ?></p>
+</header>
 <h1> <p align="center"> <font size="15" color="#CCFFCC" face="Arial"> The registration page </font> </p> </h1>
 <fieldset >
 <img src="img/go-home.png"height="25"width="25"><font color="#CCFFCC" > 
@@ -66,47 +72,56 @@ body {background-color:#3D4C3D;}
 <table align="center" cellspacing="0.6" cellpadding="5" width="350" bgcolor="#516851" border="1" > <!-- Таблица -->
 
  <tr> <!-- 1-я строка таблицы-->
-  <th> <font color="#CCFFCC" ><font color="#CCFFCC" >Login </font> </th> <!--создание ячейки-->
+  <th> <font color="#CCFFCC" ><font color="#CCFFCC" > E-mail </font> </th> <!--создание ячейки-->
   <td><input type="text" name ="Login"></td>
  </tr><!--1 строка таблицы закончилась-->
  
- <tr> <!-- 2-я строка таблицы-->
+ <tr> <!-- 2-я строка -->
+  <th><font color="#CCFFCC" > Login</font> </th>  
+  <td><input type="text" name ="email"></td>
+ </tr> 
+ 
+ <tr> <!-- 3-я строка таблицы-->
   <th><font color="#CCFFCC" > Password </font></th>  
   <td><input type="password" name ="password"></td>
  </tr> 
- <tr> <!-- 3-я строка таблицы-->
+ 
+ <tr> <!-- 4-я строка таблицы-->
   <th> <font color="#CCFFCC" >Repeat password </font> </th>  
   <td><input type="password" name ="password2"></td>
  </tr> 
-<tr> <!-- 4-я строка-->
-  <th><font color="#CCFFCC" > E-mail </font> </th>  
-  <td><input type="text" name ="email"></td>
- </tr> 
+
  <tr> <!-- 5-я строка таблицы-->
   <th> <font color="#CCFFCC" >Name</font> </th>  
   <td><input type="text" name ="name"></td>
  </tr> 
+ 
  <tr> <!-- 6-я строка таблицы-->
   <th> <font color="#CCFFCC" >Family name </font> </th>  
   <td><input type="text" name ="Family name"></td>
  </tr> 
+ 
  <tr> <!-- 7-я строка таблицы-->
   <th> <font color="#CCFFCC" >Sex:</font>  </th>  
   <td><input type="radio" name ="sex" value = "1"> <font color="#CCFFCC" >male </font>
   <input type="radio" name ="sex" value = "2"><font color="#CCFFCC" >female</font></td>
  </tr> 
+ 
  <tr> <!-- 8-я строка таблицы-->
   <th> <font color="#CCFFCC" >Date of birth</font> </th>  
   <td><input type="number" name ="day" value="1"><font color="#CCFFCC" >dayB </font>
   <input type="number" name ="month" value="1"><font color="#CCFFCC" >monthB </font>
   <input type="number" name ="year" value="1980"><font color="#CCFFCC" >yearB</font></td>
  </tr> 
+ 
  <tr> <!-- 9-я строка таблицы-->
   <th><font color="#CCFFCC" > Phone </font></th>  
   <td><input type="text" name ="phone" value="+380"> </td>
  </tr>
+ 
  <tr> <th><font color="#CCFFCC" >Country</font></th>
-    <td>
+   
+   <td>
 		<select> <!--разворачивающийся список-->
   <optgroup>
 <option>Belarus</option>
@@ -116,8 +131,11 @@ body {background-color:#3D4C3D;}
   </optgroup>
 		</select> 
 	</td>
+	
  </tr>
+ 
 </table> <!--конец таблицы-->
+
 <p align="center"><font color="#CCFFCC" >  Agree with 
 <a href="http://vk.loc/rules.php"> <font color="#CCFFCC" >site's rules</font></a>
 </font><input type="checkbox" value = "1"> </p> 
