@@ -2,8 +2,8 @@
 if(!empty($_POST))
 {
 echo 'insert into users (login, pass, email)  values("' . $_POST['login'] . '","' . $_POST['pass'] . '","' . $_POST['email'] . '")';
-//$db = new PDO('mysql:host=localhost;dbname=vk;charset=utf8', 'root', '');
-//$db->query('insert into users (login, email, pass) values("' . $_POST['login'] . '","' . $_POST['email'] . '","' . $_POST['pass'] . '")'
+$db = new PDO('mysql:host=localhost;dbname=vk;charset=utf8', 'root', '');
+$db->query('insert into users (login, email, pass) values("' . $_POST['login'] . '","' . $_POST['email'] . '","' . $_POST['pass'] . '")'
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
