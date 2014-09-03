@@ -1,12 +1,12 @@
 ﻿<?php
 if(!empty($_POST))
 {
-//echo 'insert into users ( email, login, pass) values("' . $_POST['email'] . '","' . $_POST['login'] . '","' . $_POST['pass'] . '")';
+//echo 'insert into users ( email, login, pass) values("' . $_POST['email'] . '","' . $_POST['login'] . '","' . $_POST['pass'] . '","' . $_POST['pass2'] . '","' . $_POST['name'] . '","' . $_POST['familyname'] . '","' . $_POST['dayB'] . '","' . $_POST['monthB'] . '","' . $_POST['yearB'] . '","' . $_POST['phone'] . '")';
  
 $db = new PDO('mysql:host=localhost;dbname=vk;charset=utf8', 'root', '');
 
-$db->query('insert into users (email, login, pass ) values("' . $_POST['email'] . '","' . $_POST['login'] . '","' . $_POST['pass'] . '")');
-$h_one_message='Thank you for registration' . $_POST['login'];
+$db->query('insert into users (email, login, pass ) values("' . $_POST['email'] . '","' . $_POST['login'] . '","' . $_POST['pass'] . '","' . $_POST['pass2'] . '","' . $_POST['name'] . '","' . $_POST['familyname'] . '","' . $_POST['dayB'] . '","' . $_POST['monthB'] . '","' . $_POST['yearB'] . '","' . $_POST['phone'] . '")');
+$h_one_message = 'Thank you for registration '  .  $_POST['login'];
  }
 
 ?>
@@ -55,7 +55,7 @@ body {background-color:#3D4C3D;}
 
 <body>
 <header>
-<p><?php if(isset($h_one_message)) { echo $h_one_message; } ?></p>
+<p align="center"><font color="#CCFFCC" <?php if(isset($h_one_message)) { echo $h_one_message; } ?></font></p>
 </header>
 <h1> <p align="center"> <font size="15" color="#CCFFCC" face="Arial"> The registration page </font> </p> </h1>
 <fieldset >
@@ -73,22 +73,22 @@ body {background-color:#3D4C3D;}
 
  <tr> <!-- 1-я строка таблицы-->
   <th> <font color="#CCFFCC" ><font color="#CCFFCC" > E-mail </font> </th> <!--создание ячейки-->
-  <td><input type="text" name ="Login"></td>
+  <td><input type="text" name ="email"></td>
  </tr><!--1 строка таблицы закончилась-->
  
  <tr> <!-- 2-я строка -->
   <th><font color="#CCFFCC" > Login</font> </th>  
-  <td><input type="text" name ="email"></td>
+  <td><input type="text" name ="login"></td>
  </tr> 
  
  <tr> <!-- 3-я строка таблицы-->
   <th><font color="#CCFFCC" > Password </font></th>  
-  <td><input type="password" name ="password"></td>
+  <td><input type="password" name ="pass"></td>
  </tr> 
  
  <tr> <!-- 4-я строка таблицы-->
   <th> <font color="#CCFFCC" >Repeat password </font> </th>  
-  <td><input type="password" name ="password2"></td>
+  <td><input type="password" name ="pass2"></td>
  </tr> 
 
  <tr> <!-- 5-я строка таблицы-->
@@ -98,7 +98,7 @@ body {background-color:#3D4C3D;}
  
  <tr> <!-- 6-я строка таблицы-->
   <th> <font color="#CCFFCC" >Family name </font> </th>  
-  <td><input type="text" name ="Family name"></td>
+  <td><input type="text" name ="familyname"></td>
  </tr> 
  
  <tr> <!-- 7-я строка таблицы-->
@@ -109,9 +109,9 @@ body {background-color:#3D4C3D;}
  
  <tr> <!-- 8-я строка таблицы-->
   <th> <font color="#CCFFCC" >Date of birth</font> </th>  
-  <td><input type="number" name ="day" value="1"><font color="#CCFFCC" >dayB </font>
-  <input type="number" name ="month" value="1"><font color="#CCFFCC" >monthB </font>
-  <input type="number" name ="year" value="1980"><font color="#CCFFCC" >yearB</font></td>
+  <td><input type="number" name ="dayB" value="1"><font color="#CCFFCC" >day </font>
+  <input type="number" name ="monthB" value="1"><font color="#CCFFCC" >month </font>
+  <input type="number" name ="yearB" value="1980"><font color="#CCFFCC" >year</font></td>
  </tr> 
  
  <tr> <!-- 9-я строка таблицы-->
